@@ -1,17 +1,28 @@
-# Adversarial_Attack_and_Defence_On_Openpilot
+# Adversarial Attack and Defense on OpenPilot
 
-OpenPilot is an open-source driver assistance system that uses computer vision and machine learning algorithms to provide advanced features, such as lane keeping and adaptive cruise control, in vehicles. The software is designed to be installed on compatible vehicles, where it can process data from the vehicle's cameras and sensors to provide advanced driver assistance features. OpenPilot is intended to be a flexible and extensible platform that allows users to customize and enhance its capabilities, and to contribute back to the community.
+![OpenPilot Logo]()
 
-In this project we have performed whitebox attack on the openpilot model. 
-In a white box attack, the attacker has access to the system's internal structure, algorithms, data, and network architecture, and can use this information to craft more sophisticated and targeted attacks. White box attacks are often used to evaluate the security of a system, and can provide valuable insights into potential vulnerabilities and weaknesses. They are typically more difficult to defend against than black box attacks, in which the attacker has no knowledge of the system's internal workings.
+**Adversarial_Attack_and_Defence_On_Openpilot** is a research project that explores the vulnerabilities and defenses of the OpenPilot open-source driver assistance system. OpenPilot utilizes computer vision and machine learning algorithms to provide advanced features like lane keeping and adaptive cruise control in vehicles. This project focuses on whitebox attacks, specifically adversarial patch attacks, on the OpenPilot model, and proposes a defense mechanism using Fourier transform and machine learning.
 
-# Attack
+## Table of Contents
 
-We have performed the adversarial patch attack on the openpilot model. The video data from the Autonomous Vehicle's (AV) camera is decomposed into frames. Then the adversarial patch attack is performed on some frames. An adversarial patch attack on is a type of security attack in which the attacker creates a small patch or region of an image that is specifically designed to mislead or confuse an image recognition system. The patch is typically generated using machine learning algorithms that are trained to generate patches that are difficult to detect, but that have a significant impact on the outcome of the image recognition process. Adversarial patch attacks are often used to evaluate the robustness and vulnerability of image recognition systems, and can provide valuable insights into potential weaknesses and areas for improvement. 
+- [Introduction](#introduction)
+- [Attack](#attack)
+- [Defense](#defense)
 
-# Defense 
-In mathematics, the Fourier transform is a mathematical operation that decomposes a function into its constituent frequencies. This is useful in many fields, including signal processing, image processing, and data analysis, because it allows complex, time-varying signals to be represented in a more manageable and interpretable form. 
+## Introduction
 
-Fourier transform can be used to analyze and defend against adversarial attacks on the frames from our data. Our approach is to apply the Fourier transform to the frames, and then analyze the frequency components of the resulting representation to identify potential adversarial perturbations. This can be done by comparing the frequency spectrum of the original image to that of the perturbed image. We have trained a Random Forest Classifier to classify between original and adversarial frames. Once an adversarial frame has been detected we reject these manipulated frames. 
+OpenPilot is a versatile and extensible platform designed to enhance driver assistance features in vehicles. It leverages computer vision and machine learning to provide advanced capabilities, and it encourages customization and community contributions. This project delves into the security aspects of OpenPilot, focusing on whitebox attacks and defense mechanisms.
 
-In ML_Sec_Defense.ipynb first the adversarial and benign video frame data, which are two-dimensional array of pixel values (Individual frames), is converted into a two-dimensional array of frequency coefficients using Fourier Transform. This is done using the numpy.fft.fft library.  The coefficients represent the amplitude and phase of each frequency component of the original image, and can be used to analyze and manipulate the image in various ways. Next we use this data to train a Random Forest model to classify between adversarial and normal frames. We are able to detect adversarial images with an accuracy of 99.2%.
+## Attack
+
+In this project, we perform a whitebox attack on the OpenPilot model. Whitebox attacks involve having access to the internal structure, algorithms, data, and network architecture of the system, enabling the crafting of sophisticated and targeted attacks. We specifically execute an adversarial patch attack on OpenPilot.
+
+An adversarial patch attack involves manipulating frames from the Autonomous Vehicle's (AV) camera. The attacker creates a small patch or region of an image designed to mislead or confuse the image recognition system. Machine learning algorithms are used to generate patches that are difficult to detect but significantly impact the image recognition process. These attacks assess the robustness and vulnerabilities of image recognition systems.
+
+## Defense
+
+To defend against adversarial attacks, we employ the Fourier transform, a mathematical operation used to decompose a function into its constituent frequencies. We apply the Fourier transform to frames from our data and analyze the frequency components to identify potential adversarial perturbations. This is done by comparing the frequency spectrum of the original image to that of the perturbed image.
+
+We train a Random Forest Classifier to differentiate between original and adversarial frames. When an adversarial frame is detected, it is rejected. In the notebook ML_Sec_Defense.ipynb, we convert adversarial and benign video frame data into a two-dimensional array of frequency coefficients using Fourier Transform. The coefficients represent the amplitude and phase of each frequency component, enabling us to analyze and manipulate the image effectively. Our Random Forest model achieves a high accuracy of 99.2% in detecting adversarial images.
+
