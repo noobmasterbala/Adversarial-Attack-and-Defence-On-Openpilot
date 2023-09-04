@@ -1,6 +1,6 @@
 # Adversarial Attack and Defense on OpenPilot
 
-![OpenPilot Logo]()
+![OpenPilot Logo](open.png)
 
 **Adversarial_Attack_and_Defence_On_Openpilot** is a research project that explores the vulnerabilities and defenses of the OpenPilot open-source driver assistance system. OpenPilot utilizes computer vision and machine learning algorithms to provide advanced features like lane keeping and adaptive cruise control in vehicles. This project focuses on whitebox attacks, specifically adversarial patch attacks, on the OpenPilot model, and proposes a defense mechanism using Fourier transform and machine learning.
 
